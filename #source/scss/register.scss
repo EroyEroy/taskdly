@@ -1,0 +1,340 @@
+// Обнуление
+*{padding: 0;margin: 0;border: 0;}
+*,*::before,*::after{ -moz-box-sizing: border-box;-webkit-box-sizing: border-box; box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus, a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: inherit;}
+// подключение шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap');
+// переменные
+$color_1: #FFC628;
+$color_2: #F7B1A2;
+$gradient_1: linear-gradient(90deg, #FFE49A 0%, #FFC0A5 100%);
+$gradient_2: linear-gradient(90deg, #FFC0A5 0%, #FFE49A 100%);
+$gradient_3: linear-gradient(180deg, #FFD636 0%, #F7B1A2 100%);
+// настройка для прижатия footer к низу страницы
+.wrapper{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.main{
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+// цвет и подключение шрифта для body
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: $gradient_1;
+}
+// стилизация контента
+main{
+	// стилизация волны
+	svg{
+		top: 0;
+		position: absolute;
+		transform: rotate(180deg);
+		z-index: -1;
+	}
+	// стилизация главного блока
+	.preparation{
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 180px 20px 0 20px;
+		// стилизация первого блока
+		.preparation__info{
+			max-width: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin-left: 184px;
+			order: 1;
+			// стилизация заголовка первого блока
+			.preparation__title{
+				width: 100%;
+				text-align: center;
+				font-size: 70px;
+				font-weight: 900;
+				color: #fff;
+				margin-bottom: 50px;
+			}
+			// стилизация подзаголовка первого блока
+			.preparation__subtitle{
+				width: 100%;
+				text-align: center;
+				font-size: 35px;
+				font-weight: 800;
+				color: #fff;
+				line-height: 43px;
+				margin-bottom: 50px;
+			}
+			// стилизация картинки первого блока
+			.preparation__img{
+				max-width: 50%;
+			}
+		}
+		// стилизация второго блока (формы)
+		.preparation__form{
+			width: 463px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			background: #fff;
+			border-radius: 100px;
+			padding: 0 20px;
+			position: relative;
+			// стилизация заголовка блока (фломы)
+			.preparation__action{
+				text-align: center;
+				font-size: 35px;
+				font-weight: 800;
+				color: $color_1;
+				padding-top: 118px;
+				margin-bottom: 50px;
+			}
+			// стилизация инпутов во втором блоке (форме)
+			.preparation__input{
+				padding: 0 20px;
+				width: 100%;
+				height: 75px;
+				background: none;
+				border: 5px solid $color_1;
+				border-radius: 30px;
+				margin-bottom: 10px;
+				font-size: 25px;
+				font-weight: 700;
+				color: $color_1;
+			}
+			// стилизация для начального текста в инпуте
+			::placeholder{
+				font-size: 25px;
+				font-weight: 700;
+				color: $color_1;
+			}
+			// стилизация для кнопки во втором блоке (форме)
+			.preparation__button{
+				width: 50%;
+				height: 90px;
+				background: $color_1;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 700;
+				border-radius: 30px;
+				margin-bottom: 20px;
+				transition: all .3s ease-in-out;
+				border: 5px solid $color_1;
+				// ховер эффект для кнопки во втором блоке (форме)
+				&:hover{
+					color: $color_1;
+					background: none;
+					transition: all .3s ease-in-out;
+				}
+			}
+			// стилизация доп. элементов во втором блоке (форме)
+			.preparation__bottom{
+				max-width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 78px;
+				font-size: 16px;
+				// стилизация ссылки, перенаправляющей на страницу регистрации
+				.preparation__link{
+					margin-left: 5px;
+					color: #000;
+					// ховер эффект для ссылки
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+			// стилизация блоков с уведомлением
+			.notification{
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				width: 100%;
+				color: $color_2;
+				font-weight: 700;
+				font-size: 16px;
+				left: 45px;
+				// анимация
+				visibility: hidden;
+				opacity: 0;
+				transition: 0.3s;
+				padding-left: 30px;
+				margin-bottom: 14px;
+			}
+			// анимация появления
+			.notification.active{
+				visibility: visible;
+				opacity: 1;
+				transition: 0.3s;
+			}
+		}
+	}
+}
+// медиа запросы (адаптив размера текста)
+@media screen and (max-width: 1086px){
+	main{
+		.preparation{
+			display: flex;
+			flex-direction: column;
+			.preparation__info{
+				margin-left: 0;
+				max-width: 100%;
+				margin-bottom: 100px;
+				order: -1;
+			}
+			.preparation__form{
+				max-width: 100%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 540px){
+	main{
+		.preparation{
+			.preparation__info{
+				.preparation__title{
+					font-size: 55px;
+				}
+				.preparation__subtitle{
+					font-size: 30px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 457px){
+	main{
+		.preparation{
+			.preparation__info{
+				.preparation__title{
+					font-size: 45px;
+					margin-bottom: 30px;
+				}
+				.preparation__subtitle{
+					font-size: 25px;
+					line-height: 30px;
+				}
+			}
+			.preparation__form{
+				.preparation__action{
+					font-size: 25px;
+				}
+				.preparation__button{
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 389px){
+	main{
+		.preparation{
+			.preparation__info{
+				.preparation__title{
+					font-size: 35px;
+					margin-bottom: 30px;
+				}
+				.preparation__subtitle{
+					font-size: 20px;
+					line-height: 25px;
+				}
+			}
+			.preparation__form{
+				.preparation__action{
+					font-size: 25px;
+				}
+				.preparation__button{
+					font-size: 12px;
+				}
+			}
+			.preparation__bottom{
+				display: flex;
+				flex-direction: column;
+				.preparation__link{
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 333px){
+	main{
+		.preparation{
+			.preparation__form{
+				.preparation__action{
+					font-size: 20px;
+				}
+				.preparation__button{
+					font-size: 9px;
+				}
+				.preparation__input{
+					font-size: 16px;
+				}
+				::placeholder{
+					font-size: 16px;
+					font-weight: 700;
+					color: $color_1;
+				}
+				.preparation__bottom{
+					font-size: 13px;
+				}
+			}
+		}
+	}
+}	
+@media screen and (max-width: 318px){
+	main{
+		.preparation{
+			.preparation__info{
+				.preparation__title{
+					font-size: 30px;
+					margin-bottom: 20px;
+				}
+				.preparation__subtitle{
+					font-size: 16px;
+					line-height: 20px;
+				}
+			}
+			.preparation__form{
+				.preparation__action{
+					font-size: 20px;
+				}
+				.preparation__button{
+					font-size: 9px;
+				}
+				.preparation__input{
+					font-size: 16px;
+				}
+				::placeholder{
+					font-size: 16px;
+					font-weight: 700;
+					color: $color_1;
+				}
+				.preparation__bottom{
+					font-size: 13px;
+				}
+			}
+		}
+	}
+}
